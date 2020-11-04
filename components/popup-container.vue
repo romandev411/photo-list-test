@@ -1,43 +1,44 @@
 <template>
-	<div class="wrapp">
-		<vendor-filter>
-		</vendor-filter>
-		<div class="wrapp__bg"></div>
-	</div>
+    <div class="wrap">
+        <vendor-filter>
+        </vendor-filter>
+        <div class="wrap__bg"></div>
+    </div>
 </template>
 
 <script>
-    import VendorFilter from "@/components/vendor-filter";
+import VendorFilter from '@/components/vendor-filter';
 
-	export default {
-        components: {VendorFilter},
+export default {
+    components: { VendorFilter },
 
-        data() {
-            return {};
-        },
+    data () {
+        return {};
+    },
 
-        computed: {},
+    computed: {},
 
-        created() {},
+    created () {
+    },
 
-        methods: {}
-    }
+    methods: {},
+};
 </script>
 
 <style lang="scss">
-	.wrapp {
-		position: relative;
-		height: 100vh;
-		display: flex;
+.wrap {
+    position: relative;
+    height: 100vh;
+    display: flex;
 
-        &__bg {
-            position: fixed;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            z-index: -1;
-            background: rgba(27, 32, 79, .2);
-        }
-	}
+    &__bg {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        background: rgba(27, 32, 79, 0.2);
+    }
+}
 </style>
