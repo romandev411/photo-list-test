@@ -18,7 +18,11 @@ export default {
 </script>
 
 <style lang="scss">
-body {
-    background-image: url('../static/img/bg.jpg');
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
+
+    body {
+        background-image: url('../static/img/bg.jpg');
+        margin: 0;
+        font-family: 'Open Sans', sans-serif;
 }
 </style>

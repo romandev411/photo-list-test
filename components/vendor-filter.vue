@@ -3,17 +3,14 @@
         <div class="vendor-filter__header">
             <div class="vendor-filter__title">
                 Фильтр:
-                <span class="vendor-filter__name">По альбомам</span>
-                <span class="vendor-filter__name">Избранное</span>
+                <span class="vendor-filter__name" @click="counter(check = 1)">По альбомам</span>
+                <span class="vendor-filter__name" @click="counter(check = 0)">По умолчанию</span>
             </div>
         </div>
         <div class="vendor-filter__scroll-wrap">
             <div class="vendor-filter__scroll">
-                <div class="vendor-filter__list">
-                    <div class="vendor-filter__item"></div>
-                    <div class="vendor-filter__item"></div>
-                    <div class="vendor-filter__item"></div>
-                </div>
+
+                <slot name="gallery"></slot>
             </div>
         </div>
     </div>
@@ -21,10 +18,17 @@
 
 <script>
 export default {
-    props: {},
+    props: {
+        count: {
+            default: 0,
+            type: Number,
+        },
+    },
 
     data () {
-        return {};
+        return {
+            check: this.count,
+        };
     },
 
     computed: {},
@@ -32,7 +36,15 @@ export default {
     created () {
     },
 
-    methods: {},
+    methods: {
+        counter(value) {
+            this.$emit('increment', value)
+        }
+    },
+    model: {
+        prop: 'count',
+        event: 'increment',
+    },
 };
 </script>
 
@@ -67,11 +79,14 @@ export default {
 
     &__scroll-wrap {
         overflow: hidden;
+        height: 100%;
     }
 
     &__scroll {
-        width: 100%;
-        max-height: 66rem;
+        box-sizing: border-box;
+        width: calc(100% + 50px);
+        max-height: 100%;
+        padding-right: 50px;
         overflow-y: auto;
     }
 
